@@ -3,6 +3,8 @@ let player1Score = 0
 let player2Score = 0
 let player1Turn = true
 
+const playerOne = document.getElementsByClassName('player1')
+const playerTwo = document.getElementsByClassName('player2')
 const player1Dice = document.getElementById("player1Dice")
 const player2Dice = document.getElementById("player2Dice")
 const player1Scoreboard = document.getElementById("player1Scoreboard")
@@ -20,6 +22,17 @@ function displayNewGame() {
     rollBtn.style.display = "inline-block"
     resetBtn.style.display = "none"
 }
+
+function loser(loser) {
+    loser.classList.add("loser")
+    loser.classList.remove("active")
+}
+
+function winner(winner) {
+    winner.classList.add("winner")
+    winner.classList.remove("active")
+}
+
 
 function handleClick() {
     const randomNumber = Math.floor(Math.random() * 6) + 1
@@ -43,9 +56,13 @@ function handleClick() {
     }
 
     if (player1Score >= 20) {
+        loser(player2Dice)
+        winner(player1Dice)
         message.innerText = "Player one has won !! 🎉"
         displayReset()
     } else if (player2Score >= 20 ) {
+        loser(player1Dice)
+        winner(player2Dice)
         message.innerText = "Player two has won !! 🎉"
         displayReset()
     }
@@ -54,6 +71,10 @@ function handleClick() {
 function resetGame() {
     displayNewGame()
     message.innerText = "New game !"
+    player1Dice.classList.remove("loser")
+    player2Dice.classList.remove("loser")
+    player1Dice.classList.remove("winner")
+    player2Dice.classList.remove("winner")
     player1Scoreboard.innerText = 0
     player2Scoreboard.innerText = 0
     player1Dice.innerText = 0
