@@ -38,7 +38,7 @@ function handleClick() {
     const randomNumber = Math.floor(Math.random() * 6) + 1
      
     if (player1Turn) {
-        message.innerText = "Player two turn !"
+        message.innerText = "Player two turn ➡"
         player1Dice.classList.remove("active")
         player2Dice.classList.add("active")
         player1Dice.innerText = randomNumber
@@ -46,7 +46,7 @@ function handleClick() {
         player1Scoreboard.innerText = player1Score
         player1Turn = false
     } else {
-        message.innerText = "Player one turn !"
+        message.innerText = "⬅ Player one turn"
         player2Dice.classList.remove("active")
         player1Dice.classList.add("active")
         player2Dice.innerText = randomNumber
@@ -58,19 +58,23 @@ function handleClick() {
     if (player1Score >= 20) {
         loser(player2Dice)
         winner(player1Dice)
-        message.innerText = "Player one has won !! 🎉"
+        message.innerText = "⬅ Player one has won !! 🎉"
+        player1Dice.innerText = ""
+        player2Dice.innerText = ""
         displayReset()
     } else if (player2Score >= 20 ) {
         loser(player1Dice)
         winner(player2Dice)
-        message.innerText = "Player two has won !! 🎉"
+        message.innerText = "Player two has won !! 🎉 ➡"
+        player1Dice.innerText = ""
+        player2Dice.innerText = ""
         displayReset()
     }
 }
 
 function resetGame() {
     displayNewGame()
-    message.innerText = "New game !"
+    message.innerText = "⬇ New game ⬇"
     player1Dice.classList.remove("loser")
     player2Dice.classList.remove("loser")
     player1Dice.classList.remove("winner")
