@@ -137,14 +137,14 @@ button:hover {
 }
 
 .loser {
-  background-image: url("images/130136-full.png");
+  background-image: url("images/kevin.jpg");
   background-size: cover;
   background-position: center;
   z-index: 1;
 }
 
 .winner {
-  background-image: url("images/OOVEYSCQCXOQXJ7ZYAZF25SKZI.jpg");
+  background-image: url("images/chucknorris.jpg");
   background-size: cover;
   background-position: center;
   z-index: 1;
